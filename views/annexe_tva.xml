@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+    
+    <record model="ir.ui.view" id="annexe_tva_wizard">
+        <field name="name">annexe.tva.export.wizard</field>
+        <field name="model">annexe.tva.export</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from" class="oe_inline" />
+                    </group>
+                    <group>
+                        <field name="date_to" class="oe_inline" />
+                    </group>
+                </group>
+                <footer>
+                    <button class="oe_highlight" type="object" name="export_xlsx" string="Exporter" icon="fa-download" />
+                    ou
+                    <button class="oe_link" special="cancel" string="Annuler" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="annexe_tva_open_wizard">
+        <field name="name">Annexe TVA - excel</field>
+        <field name="res_model">annexe.tva.export</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="annexe_tva_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Annexe TVA" id="annexe_tva" parent="account.account_reports_management_menu" action="annexe_tva_open_wizard"/>
+
+  </data>
+</odoo>

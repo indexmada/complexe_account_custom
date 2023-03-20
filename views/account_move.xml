@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="add_location_field_in_account_move" model="ir.ui.view">
+      <field name="name">account.move.location.field</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <field name="currency_id" position="after">
+          <field name="location_state"/>
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>
